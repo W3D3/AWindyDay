@@ -72,6 +72,6 @@ public class GameController : MonoBehaviour
 
     public bool CheckStatus()
     {
-        return Movables.All(x => x.velocity == Vector3.zero) || Movables.Count == 0;
+        return Movables != null && Movables.All(x => x.velocity == Vector3.zero) || Movables.Count == 0;
     }
 }

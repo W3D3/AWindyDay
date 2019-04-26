@@ -1270,6 +1270,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ParticleBlower
       objectReference: {fileID: 0}
+    - target: {fileID: 5449512418577036833, guid: db2649c78730ba349b6b7e1c0c1d16e0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5449512418577036834, guid: db2649c78730ba349b6b7e1c0c1d16e0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1557,7 +1562,7 @@ PrefabInstance:
     - target: {fileID: 8350203710350053595, guid: caf0b8e7ea5bc6847a9d88919c67c353,
         type: 3}
       propertyPath: Movables.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8350203710350053595, guid: caf0b8e7ea5bc6847a9d88919c67c353,
         type: 3}
@@ -1574,5 +1579,10 @@ PrefabInstance:
       propertyPath: RightBlower
       value: 
       objectReference: {fileID: 774580125}
+    - target: {fileID: 8350203710350053595, guid: caf0b8e7ea5bc6847a9d88919c67c353,
+        type: 3}
+      propertyPath: Movables.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caf0b8e7ea5bc6847a9d88919c67c353, type: 3}
