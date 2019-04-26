@@ -18,6 +18,8 @@ public class WindScript : MonoBehaviour
 
     private List<Vector3> RayOrigins = new List<Vector3>();
 
+    private Dictionary<int, Movable> _moveableObjects = new Dictionary<int, Movable>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,7 +72,7 @@ public class WindScript : MonoBehaviour
     {
         if (Blowing)
         {
-            var movableObjects = new Dictionary<int, Rigidbody>();
+            _moveableObjects.Clear();
 
             foreach (var origin in RayOrigins)
             {
@@ -84,15 +86,16 @@ public class WindScript : MonoBehaviour
 
                 
                 var objectId = hits[0].transform.GetInstanceID();
-                if (!movableObjects.ContainsKey(objectId))
+                var movable = hits[0].transform.GetComponent<Movable>();
+                if (movable != null && !_moveableObjects.ContainsKey(objectId))
                 {
-                    movableObjects.Add(objectId, hits[0].rigidbody);
+                    _moveableObjects.Add(objectId, movable);
                 }
             }
 
-            foreach (var rec in movableObjects.Values)
+            foreach (var rec in _moveableObjects.Values)
             {
-                rec.AddForce(_raycastDirection * Force, ForceMode.Acceleration);
+                rec.PushObject(_raycastDirection, Force);
             }
             
         }
