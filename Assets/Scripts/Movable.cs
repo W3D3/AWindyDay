@@ -2,14 +2,12 @@ using UnityEngine;
 
 public class Movable : MonoBehaviour
 {
-    private Rigidbody rigidbody;
-    
-    public int force;
+    private Rigidbody _rigidbody;
     
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
     /// <summary>
@@ -18,8 +16,8 @@ public class Movable : MonoBehaviour
     /// </summary>
     /// <param name="direction">Direction of the push (will be normalized)</param>
     /// <param name="force">Intensity of the push</param>
-    public void pushObject(Vector3 direction, float force)
-    {
-        rigidbody.AddForce(direction.normalized * force, ForceMode.Acceleration);
+    public void PushObject(Vector3 direction, float force)
+    { 
+        _rigidbody.AddForce(direction.normalized * force, ForceMode.Acceleration);
     }
 }
