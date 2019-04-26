@@ -65,6 +65,8 @@ public class WindScript : MonoBehaviour
 
             RayOrigins.Add(origin);
         }
+
+        Blowing = false;
     }
 
     // Update is called once per frame
@@ -99,5 +101,12 @@ public class WindScript : MonoBehaviour
             }
             
         }
+    }
+
+    public void SetBlowing(bool blowing)
+    {
+        Blowing = blowing;
+        var particles = GetComponentInChildren<ParticleSystem>(true);
+        particles?.gameObject.SetActive(blowing);
     }
 }
