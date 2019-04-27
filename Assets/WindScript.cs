@@ -68,8 +68,6 @@ public class WindScript : MonoBehaviour
 
             RayOrigins.Add(origin);
         }
-
-        Blowing = false;
     }
 
     // Update is called once per frame
