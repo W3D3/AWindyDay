@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3917076273951933292}
   - component: {fileID: 5276669319821928475}
   - component: {fileID: 6820502194239251560}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: CardboardBox_Cube.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,9 +90,9 @@ GameObject:
   - component: {fileID: 794417012045445491}
   - component: {fileID: 7406807339154009428}
   - component: {fileID: -183866635258583645}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: clothRackKarton
-  m_TagString: Untagged
+  m_TagString: Movable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 3104310246393741478}
   - component: {fileID: 8249475247155862366}
   - component: {fileID: 5211040623154270533}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Coat_Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
