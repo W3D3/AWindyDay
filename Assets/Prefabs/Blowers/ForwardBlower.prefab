@@ -212,6 +212,11 @@ PrefabInstance:
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5003471444574036617, guid: 3be05445432414a0d8edef07f17b7f97,
+        type: 3}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 51
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3be05445432414a0d8edef07f17b7f97, type: 3}
 --- !u!4 &253798446868615847 stripped
