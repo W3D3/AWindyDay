@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 407657351}
   - component: {fileID: 407657352}
   m_Layer: 0
-  m_Name: Spot Light
+  m_Name: goalLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ Light:
       e33: 1
     m_UseCullingMatrixOverride: 0
   m_Cookie: {fileID: 0}
-  m_DrawHalo: 1
+  m_DrawHalo: 0
   m_Flare: {fileID: 0}
   m_RenderMode: 1
   m_CullingMask:

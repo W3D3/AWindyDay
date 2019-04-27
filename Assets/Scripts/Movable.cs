@@ -8,6 +8,7 @@ public class Movable : MonoBehaviour
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _rigidbody.drag = 1;
     }
 
     /// <summary>
