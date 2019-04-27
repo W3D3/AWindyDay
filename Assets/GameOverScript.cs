@@ -10,7 +10,7 @@ public class GameOverScript : MonoBehaviour
     {
         var go = collision.gameObject;
 
-        if (go.transform.CompareTag("Movable"))
+        if (go.transform.CompareTag("Movable") && go.GetComponent<PlayerScript>() != null)
         {
             Controller?.TriggerGameOver();
         }

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1783167544190508038}
   - component: {fileID: 1783167544195608838}
   - component: {fileID: 1783167545892055534}
-  - component: {fileID: 1783167545892055533}
   m_Layer: 0
   m_Name: PhoneBox
   m_TagString: Obstacle
@@ -113,15 +112,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 8cc7222f0531a1747b2a8b1e856dff5c, type: 3}
---- !u!114 &1783167545892055533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783167544188306118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eab47ea024c0430e8de80d84af26cbf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
