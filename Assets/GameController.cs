@@ -80,6 +80,13 @@ public class GameController : MonoBehaviour
         _blowers.ForEach(x => x.SetBlowing(false));
     }
 
+    public void TriggerWin()
+    {
+        Debug.Log("Win");
+
+
+    }
+
     /// <summary>
     /// Check status of all movable objects
     /// </summary>
