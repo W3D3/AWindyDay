@@ -19,6 +19,5 @@ public class Movable : MonoBehaviour
     public void PushObject(Vector3 direction, float force)
     { 
         _rigidbody.AddForce(direction.normalized * force * 0.03f, ForceMode.VelocityChange);
-        //_rigidbody.velocity = direction.normalized * force;
     }
 }
