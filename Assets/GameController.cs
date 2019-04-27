@@ -84,7 +84,7 @@ public class GameController : MonoBehaviour
 
                 if (!_checkBlowing)
                 {
-                    Invoke("EnableBlowChecking", 0.1f);
+                    Invoke("EnableBlowChecking", 0.6f);
                 }
             }
         }
