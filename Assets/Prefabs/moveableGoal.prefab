@@ -91,7 +91,7 @@ GameObject:
   - component: {fileID: 7406807339154009428}
   - component: {fileID: -183866635258583645}
   m_Layer: 0
-  m_Name: clothRackKarton
+  m_Name: moveableGoal
   m_TagString: Movable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Controller: {fileID: 0}
-  HatPosition: {x: 0, y: 0, z: 0}
+  HatPosition: {x: 0, y: 2.37, z: -0.19}
 --- !u!114 &7406807339154009428
 MonoBehaviour:
   m_ObjectHideFlags: 0
