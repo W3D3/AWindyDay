@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5803782465580360811}
   - component: {fileID: 5231806789596338215}
   - component: {fileID: 3446150296129346188}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: Crowd Control Barrier 14 Bars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,9 +100,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6106021471615986313}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: gitter
-  m_TagString: Untagged
+  m_TagString: IgnoreWind
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
