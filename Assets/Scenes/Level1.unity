@@ -578,21 +578,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7464581486576166210, guid: 6db42db499faae34ba4518f53cfd41ea,
         type: 3}
-      propertyPath: HatPosition.y
-      value: 3.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 7464581486576166210, guid: 6db42db499faae34ba4518f53cfd41ea,
-        type: 3}
-      propertyPath: HatPosition.z
-      value: -0.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 7464581486576166210, guid: 6db42db499faae34ba4518f53cfd41ea,
-        type: 3}
-      propertyPath: HatPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7464581486576166210, guid: 6db42db499faae34ba4518f53cfd41ea,
-        type: 3}
       propertyPath: Controller
       value: 
       objectReference: {fileID: 1221895859}
