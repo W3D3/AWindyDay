@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -66,6 +67,12 @@ public class GameController : MonoBehaviour
             {
                 Invoke("EnableBlowChecking", 1f);
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            var scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scene.name);
         }
     }
 

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5576596967097007978}
   - component: {fileID: 6286061098441862262}
   - component: {fileID: 7464581486576166210}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: clothRack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
