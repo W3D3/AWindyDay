@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.43846774, g: 0.48655307, b: 0.5668264, a: 1}
+  m_IndirectSpecularColor: {r: 0.43846756, g: 0.48655307, b: 0.5668263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -820,22 +820,22 @@ PrefabInstance:
     - target: {fileID: 5363449543633608314, guid: b4f957c6a53af41ac836a85c08d208d0,
         type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: -6.3384464e+29
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5363449543633608314, guid: b4f957c6a53af41ac836a85c08d208d0,
         type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 1.7592186e+13
+      value: 6.489658e-36
       objectReference: {fileID: 0}
     - target: {fileID: 5363449543633608314, guid: b4f957c6a53af41ac836a85c08d208d0,
         type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: -1.7014118e+38
+      value: 1.4e-44
       objectReference: {fileID: 0}
     - target: {fileID: 5363449543633608314, guid: b4f957c6a53af41ac836a85c08d208d0,
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 2.5243547e-29
+      value: 2.3510647e-38
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4f957c6a53af41ac836a85c08d208d0, type: 3}
@@ -1758,12 +1758,12 @@ PrefabInstance:
     - target: {fileID: 87879351521454920, guid: 6ff5bfed1b033b444ba18f43dc89b8db,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 50.00003
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 87879351521454920, guid: 6ff5bfed1b033b444ba18f43dc89b8db,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 50.00003
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 1819858395378546263, guid: 6ff5bfed1b033b444ba18f43dc89b8db,
         type: 3}
@@ -3076,7 +3076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d52ef064d8ba8149b0ec66400f4acb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FirstLevel: LevelTemplate
+  FirstLevel: Level0
 --- !u!4 &1563541896
 Transform:
   m_ObjectHideFlags: 0
