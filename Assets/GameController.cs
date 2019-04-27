@@ -148,7 +148,7 @@ public class GameController : MonoBehaviour
     /// <returns>True no movable object is moving</returns>
     public bool CheckStatus()
     {
-        return _state == GameState.Playing && _movables != null && _movables.All(x => x.velocity == Vector3.zero);
+        return _state == GameState.Playing && _movables != null && _movables.All(x => x.velocity.magnitude < 0.001f);
     }
 
     private bool noParticles()
