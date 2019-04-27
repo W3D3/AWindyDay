@@ -89,6 +89,17 @@ public class WindScript : MonoBehaviour
                 {
                     if (!raycastHit.transform.CompareTag("Movable")) break;
 
+                    var rb = raycastHit.transform.gameObject.GetComponent<Rigidbody>();
+
+                    // Object hitting movable that is frozen in Z
+                    if ((rb.constraints & RigidbodyConstraints.FreezePositionZ) != 0
+                        && (_raycastDirection == Vector3.forward || _raycastDirection == Vector3.back)) break;
+
+                    // Object hitting movable that is frozen in X
+                    if ((rb.constraints & RigidbodyConstraints.FreezePositionX) != 0
+                        && (_raycastDirection == Vector3.left || _raycastDirection == Vector3.right)) break;
+
+
                     var objectId = raycastHit.transform.GetInstanceID();
                     var movable = raycastHit.transform.GetComponent<Movable>();
                     if (movable != null && !_moveableObjects.ContainsKey(objectId))
