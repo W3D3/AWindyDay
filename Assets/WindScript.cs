@@ -20,6 +20,8 @@ public class WindScript : MonoBehaviour
 
     private Dictionary<int, Movable> _moveableObjects = new Dictionary<int, Movable>();
 
+    public int particleEmmision = 2000;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -110,6 +112,6 @@ public class WindScript : MonoBehaviour
         if (particles == null) return;
 
         var emission = particles.emission;
-        emission.rateOverTime = blowing ? 700 : 0;
+        emission.rateOverTime = blowing ? particleEmmision : 0;
     }
 }

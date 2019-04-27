@@ -109,6 +109,7 @@ MonoBehaviour:
   Blowing: 0
   Force: 12
   RaycastCount: 40
+  particleEmmision: 2000
 --- !u!1 &6826169983436976131
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,8 +225,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 10
-      minScalar: 7
+      scalar: 4
+      minScalar: 2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -259,8 +260,8 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 4
-      minScalar: 3
+      scalar: 30
+      minScalar: 25
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -821,7 +822,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 700
+      scalar: 0
       minScalar: 10
       maxCurve:
         serializedVersion: 2

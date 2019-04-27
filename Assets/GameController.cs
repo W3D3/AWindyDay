@@ -58,31 +58,34 @@ public class GameController : MonoBehaviour
             RightBlower?.SetBlowing(false);
             BackBlower?.SetBlowing(false);
             LeftBlower?.SetBlowing(false);
-            
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                ForwardBlower?.SetBlowing(true);
-                _checkBlowing = false;
-            }
-            else if (Input.GetKeyDown(KeyCode.D))
-            {
-                RightBlower?.SetBlowing(true);
-                _checkBlowing = false;
-            }
-            else if (Input.GetKeyDown(KeyCode.S))
-            {
-                BackBlower?.SetBlowing(true);
-                _checkBlowing = false;
-            }
-            else if (Input.GetKeyDown(KeyCode.A))
-            {
-                LeftBlower?.SetBlowing(true);
-                _checkBlowing = false;
-            }
 
-            if (!_checkBlowing)
+            if (noParticles())
             {
-                Invoke("EnableBlowChecking", 1f);
+                if (Input.GetKeyDown(KeyCode.W))
+                {
+                    ForwardBlower?.SetBlowing(true);
+                    _checkBlowing = false;
+                }
+                else if (Input.GetKeyDown(KeyCode.D))
+                {
+                    RightBlower?.SetBlowing(true);
+                    _checkBlowing = false;
+                }
+                else if (Input.GetKeyDown(KeyCode.S))
+                {
+                    BackBlower?.SetBlowing(true);
+                    _checkBlowing = false;
+                }
+                else if (Input.GetKeyDown(KeyCode.A))
+                {
+                    LeftBlower?.SetBlowing(true);
+                    _checkBlowing = false;
+                }
+
+                if (!_checkBlowing)
+                {
+                    Invoke("EnableBlowChecking", 0.1f);
+                }
             }
         }
 
@@ -118,7 +121,7 @@ public class GameController : MonoBehaviour
     public void TriggerGameOver()
     {
         Debug.Log("Game Over");
-        _blowers.ForEach(x => x.SetBlowing(false));
+//        _blowers.ForEach(x => x.SetBlowing(false));
 
         GameOverPanel.SetActive(true);
         TitleText.text = "Level Failed :(";
@@ -146,5 +149,17 @@ public class GameController : MonoBehaviour
     public bool CheckStatus()
     {
         return _state == GameState.Playing && _movables != null && _movables.All(x => x.velocity == Vector3.zero);
+    }
+
+    private bool noParticles()
+    {
+        int sum = 0;
+        foreach (var blower in _blowers)
+        {
+            var particleSystem = blower.GetComponentInChildren<ParticleSystem>();
+            sum += particleSystem.particleCount;
+        }
+
+        return sum < 100;
     }
 }
