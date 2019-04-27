@@ -18,7 +18,7 @@ public class Movable : MonoBehaviour
     /// <param name="force">Intensity of the push</param>
     public void PushObject(Vector3 direction, float force)
     { 
-        _rigidbody.AddForce(direction.normalized * force * 0.03f, ForceMode.VelocityChange);
-        //_rigidbody.velocity = direction.normalized * force;
+//        _rigidbody.AddForce(direction.normalized * force * 0.03f, ForceMode.VelocityChange);
+        _rigidbody.velocity = direction.normalized * force;
     }
 }
