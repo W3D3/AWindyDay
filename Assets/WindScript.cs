@@ -87,8 +87,6 @@ public class WindScript : MonoBehaviour
 
                 foreach (var raycastHit in hits)
                 {
-                    if (raycastHit.transform.CompareTag("IgnoreWind")) continue;
-
                     if (!raycastHit.transform.CompareTag("Movable")) break;
 
                     var rb = raycastHit.transform.gameObject.GetComponent<Rigidbody>();
