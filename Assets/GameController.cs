@@ -156,8 +156,8 @@ public class GameController : MonoBehaviour
         int sum = 0;
         foreach (var blower in _blowers)
         {
-            var particleSystem = blower.GetComponentInChildren<ParticleSystem>();
-            sum += particleSystem.particleCount;
+            var ps = blower.GetComponentInChildren<ParticleSystem>();
+            sum += ps.particleCount;
         }
 
         return sum < 100;
