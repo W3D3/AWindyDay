@@ -109,6 +109,7 @@ MonoBehaviour:
   Blowing: 0
   Force: 12
   RaycastCount: 40
+  particleEmmision: 2000
 --- !u!1001 &8191980259147292428
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -174,6 +175,31 @@ PrefabInstance:
     - target: {fileID: 8454686565426733503, guid: 3be05445432414a0d8edef07f17b7f97,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003471444574036617, guid: 3be05445432414a0d8edef07f17b7f97,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003471444574036617, guid: 3be05445432414a0d8edef07f17b7f97,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.minScalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003471444574036617, guid: 3be05445432414a0d8edef07f17b7f97,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003471444574036617, guid: 3be05445432414a0d8edef07f17b7f97,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003471444574036617, guid: 3be05445432414a0d8edef07f17b7f97,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Enums;
@@ -19,6 +20,8 @@ public class WindScript : MonoBehaviour
     private List<Vector3> RayOrigins = new List<Vector3>();
 
     private Dictionary<int, Movable> _moveableObjects = new Dictionary<int, Movable>();
+
+    public int particleEmmision = 2000;
 
     // Start is called before the first frame update
     void Start()
@@ -105,11 +108,17 @@ public class WindScript : MonoBehaviour
 
     public void SetBlowing(bool blowing)
     {
-        Blowing = blowing;
+        StartCoroutine(DelayBlowing(blowing));
         var particles = GetComponentInChildren<ParticleSystem>(true);
         if (particles == null) return;
 
         var emission = particles.emission;
-        emission.rateOverTime = blowing ? 700 : 0;
+        emission.rateOverTime = blowing ? particleEmmision : 0;
+    }
+
+    IEnumerator DelayBlowing(bool blowing)
+    {
+        yield return new WaitForSeconds(0.5f);
+        Blowing = blowing;
     }
 }
