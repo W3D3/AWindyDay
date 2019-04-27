@@ -189,6 +189,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5003471444574036617, guid: 3be05445432414a0d8edef07f17b7f97,
         type: 3}
+      propertyPath: cullingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003471444574036617, guid: 3be05445432414a0d8edef07f17b7f97,
+        type: 3}
       propertyPath: InitialModule.startLifetime.scalar
       value: 4
       objectReference: {fileID: 0}
