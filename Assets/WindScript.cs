@@ -107,6 +107,9 @@ public class WindScript : MonoBehaviour
     {
         Blowing = blowing;
         var particles = GetComponentInChildren<ParticleSystem>(true);
-        particles?.gameObject.SetActive(blowing);
+        if (particles == null) return;
+
+        var emission = particles.emission;
+        emission.rateOverTime = blowing ? 700 : 0;
     }
 }
