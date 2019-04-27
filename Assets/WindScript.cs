@@ -84,15 +84,17 @@ public class WindScript : MonoBehaviour
                 var hits = Physics.RaycastAll(origin, _raycastDirection, 100f)
                     .OrderBy(x => x.distance)
                     .ToList();
-                
-                if (hits.Count < 1 || !hits[0].transform.CompareTag("Movable")) continue;
 
-                
-                var objectId = hits[0].transform.GetInstanceID();
-                var movable = hits[0].transform.GetComponent<Movable>();
-                if (movable != null && !_moveableObjects.ContainsKey(objectId))
+                foreach (var raycastHit in hits)
                 {
-                    _moveableObjects.Add(objectId, movable);
+                    if (!raycastHit.transform.CompareTag("Movable")) break;
+
+                    var objectId = raycastHit.transform.GetInstanceID();
+                    var movable = raycastHit.transform.GetComponent<Movable>();
+                    if (movable != null && !_moveableObjects.ContainsKey(objectId))
+                    {
+                        _moveableObjects.Add(objectId, movable);
+                    }
                 }
             }
 
