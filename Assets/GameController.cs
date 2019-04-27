@@ -118,7 +118,6 @@ public class GameController : MonoBehaviour
     public void TriggerGameOver()
     {
         Debug.Log("Game Over");
-        _blowers.ForEach(x => x.SetBlowing(false));
 
         GameOverPanel.SetActive(true);
         TitleText.text = "Level Failed :(";
