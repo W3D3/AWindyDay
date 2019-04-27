@@ -92,16 +92,16 @@ Material:
     - _BlendMode: 0
     - _BlendSrc: 5
     - _BumpScale: 1
-    - _Cutoff: 0.438
+    - _Cutoff: 0.387
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EmissionScaleUI: 0
     - _Exposure: 1
-    - _FadeEnd: 10
+    - _FadeEnd: 19.39
     - _FadeStart: 2
     - _Glossiness: 0
     - _HDRMultiplier: 1
-    - _InvFade: 1.15
+    - _InvFade: 3
     - _LightCount: 0
     - _LightingMode: 0
     - _Metallic: 0
@@ -110,7 +110,7 @@ Material:
     - _Parallax: 0.02
     - _Rotation: 0
     - _SrcBlend: 1
-    - _Thickness: 0.248
+    - _Thickness: 0.01
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
@@ -118,4 +118,4 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
     - _Tint: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
-    - _TintColor: {r: 1, g: 1, b: 1, a: 0.37254903}
+    - _TintColor: {r: 1, g: 1, b: 1, a: 0.14509805}
