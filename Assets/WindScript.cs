@@ -17,7 +17,7 @@ public class WindScript : MonoBehaviour
 
     private Vector3 _raycastDirection;
 
-    private List<Vector3> RayOrigins = new List<Vector3>();
+    private List<Vector3> RayOrigins;
 
     private Dictionary<int, Movable> _moveableObjects = new Dictionary<int, Movable>();
 
@@ -26,6 +26,7 @@ public class WindScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        RayOrigins = new List<Vector3>();
         switch (Direction)
         {
             case WindDirection.Back:
@@ -73,6 +74,7 @@ public class WindScript : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(transform.hasChanged) Start();
         if (Blowing)
         {
             _moveableObjects.Clear();
