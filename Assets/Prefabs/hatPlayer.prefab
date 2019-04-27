@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 5363449543265725065}
   - component: {fileID: 5363449543265725303}
   - component: {fileID: 6730576843549293370}
-  - component: {fileID: 969630667}
   m_Layer: 0
   m_Name: hatPlayer
   m_TagString: Movable
@@ -79,18 +78,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &6730576843549293370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4129556660200600189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95b4e58b6d643804ba0e764fd5a00783, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &969630667
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -267,7 +254,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 1.19e-43, z: 5.37e-42, w: 6e-44}
+  m_BoundingSphereOverride: {x: 1e-45, y: 9.1835e-41, z: 0, w: -1.653792e+22}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
