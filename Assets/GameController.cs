@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Assets.Enums;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -21,6 +22,9 @@ public class GameController : MonoBehaviour
 
     private bool _checkBlowing = false;
 
+    private GameState _state;
+    public string NextLevel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,9 +38,11 @@ public class GameController : MonoBehaviour
         _checkBlowing = true;
 
         var texts = GameOverPanel.GetComponentsInChildren<Text>();
-        ;
+        
         TitleText = texts[0];
         InfoText = texts[1];
+
+        _state = GameState.Playing;
 
     }
 
@@ -82,16 +88,33 @@ public class GameController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            var scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
+            RestartLevel();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && _state == GameState.Won)
+        {
+            if (!string.IsNullOrEmpty(NextLevel))
+            {
+                SceneManager.LoadScene(NextLevel);
+            }
+            else
+            {
+                RestartLevel();
+            }
         }
     }
 
-    public void EnableBlowChecking()
+    void EnableBlowChecking()
     {
         _checkBlowing = true;
     }
 
+    private void RestartLevel()
+    {
+        var scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+    }
+    
     public void TriggerGameOver()
     {
         Debug.Log("Game Over");
@@ -100,6 +123,8 @@ public class GameController : MonoBehaviour
         GameOverPanel.SetActive(true);
         TitleText.text = "Level Failed :(";
         InfoText.text = "Press R to restart";
+
+        _state = GameState.Lost;
     }
 
     public void TriggerWin()
@@ -110,6 +135,8 @@ public class GameController : MonoBehaviour
         TitleText.text = "Level Clear :)";
         InfoText.text = "Press Space to continue";
 
+        _state = GameState.Won;
+
     }
 
     /// <summary>
@@ -118,6 +145,6 @@ public class GameController : MonoBehaviour
     /// <returns>True no movable object is moving</returns>
     public bool CheckStatus()
     {
-        return _movables != null && _movables.All(x => x.velocity == Vector3.zero);
+        return _state == GameState.Playing && _movables != null && _movables.All(x => x.velocity == Vector3.zero);
     }
 }
