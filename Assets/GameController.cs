@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Assets.Enums;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -14,7 +16,14 @@ public class GameController : MonoBehaviour
 
     private List<WindScript> _blowers = new List<WindScript>();
 
+    public GameObject GameOverPanel;
+    private Text TitleText;
+    private Text InfoText;
+
     private bool _checkBlowing = false;
+
+    private GameState _state;
+    public string NextLevel;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +36,14 @@ public class GameController : MonoBehaviour
         _movables = FindObjectsOfType<Movable>().Select(x => x.GetComponent<Rigidbody>()).ToList();
 
         _checkBlowing = true;
+
+        var texts = GameOverPanel.GetComponentsInChildren<Text>();
+        
+        TitleText = texts[0];
+        InfoText = texts[1];
+
+        _state = GameState.Playing;
+
     }
 
     // Update is called once per frame
@@ -71,26 +88,54 @@ public class GameController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            var scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
+            RestartLevel();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && _state == GameState.Won)
+        {
+            if (!string.IsNullOrEmpty(NextLevel))
+            {
+                SceneManager.LoadScene(NextLevel);
+            }
+            else
+            {
+                RestartLevel();
+            }
         }
     }
 
-    public void EnableBlowChecking()
+    void EnableBlowChecking()
     {
         _checkBlowing = true;
     }
 
+    private void RestartLevel()
+    {
+        var scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
+    }
+    
     public void TriggerGameOver()
     {
         Debug.Log("Game Over");
         _blowers.ForEach(x => x.SetBlowing(false));
+
+        GameOverPanel.SetActive(true);
+        TitleText.text = "Level Failed :(";
+        InfoText.text = "Press R to restart";
+
+        _state = GameState.Lost;
     }
 
     public void TriggerWin()
     {
         Debug.Log("Win");
 
+        GameOverPanel.SetActive(true);
+        TitleText.text = "Level Clear :)";
+        InfoText.text = "Press Space to continue";
+
+        _state = GameState.Won;
 
     }
 
@@ -100,6 +145,6 @@ public class GameController : MonoBehaviour
     /// <returns>True no movable object is moving</returns>
     public bool CheckStatus()
     {
-        return _movables != null && _movables.All(x => x.velocity == Vector3.zero);
+        return _state == GameState.Playing && _movables != null && _movables.All(x => x.velocity == Vector3.zero);
     }
 }

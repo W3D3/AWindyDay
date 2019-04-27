@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 7302370788832523470}
   - component: {fileID: 1029636083304869723}
   m_Layer: 0
-  m_Name: garbageContainer
-  m_TagString: Untagged
+  m_Name: fixedContainer
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
