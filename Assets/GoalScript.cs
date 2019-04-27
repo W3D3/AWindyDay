@@ -10,7 +10,17 @@ public class GoalScript : MonoBehaviour
     void OnTriggerEnter(Collider triggerCollider)
     {
         var go = triggerCollider.gameObject;
+        HandlePlayerCollision(go);
+    }
 
+    void OnCollisionEnter(Collision triggerCollision)
+    {
+        var go = triggerCollision.gameObject;
+        HandlePlayerCollision(go);
+    }
+
+    private void HandlePlayerCollision(GameObject go)
+    {
         if (go.GetComponent<PlayerScript>() != null)
         {
             Controller.TriggerWin();
