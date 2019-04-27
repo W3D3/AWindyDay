@@ -2,6 +2,7 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class GameController : MonoBehaviour
     public WindScript LeftBlower;
 
     private List<WindScript> _blowers = new List<WindScript>();
+
+    public GameObject GameOverPanel;
+    private Text TitleText;
+    private Text InfoText;
 
     private bool _checkBlowing = false;
 
@@ -27,6 +32,12 @@ public class GameController : MonoBehaviour
         _movables = FindObjectsOfType<Movable>().Select(x => x.GetComponent<Rigidbody>()).ToList();
 
         _checkBlowing = true;
+
+        var texts = GameOverPanel.GetComponentsInChildren<Text>();
+        ;
+        TitleText = texts[0];
+        InfoText = texts[1];
+
     }
 
     // Update is called once per frame
@@ -85,12 +96,19 @@ public class GameController : MonoBehaviour
     {
         Debug.Log("Game Over");
         _blowers.ForEach(x => x.SetBlowing(false));
+
+        GameOverPanel.SetActive(true);
+        TitleText.text = "Level Failed :(";
+        InfoText.text = "Press R to restart";
     }
 
     public void TriggerWin()
     {
         Debug.Log("Win");
 
+        GameOverPanel.SetActive(true);
+        TitleText.text = "Level Clear :)";
+        InfoText.text = "Press Space to continue";
 
     }
 
