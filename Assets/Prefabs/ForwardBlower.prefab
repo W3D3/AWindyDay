@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Direction: 2
   Blowing: 0
-  Force: 20
+  Force: 12
   RaycastCount: 60
 --- !u!1001 &6591454067027920459
 PrefabInstance:

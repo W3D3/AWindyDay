@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public List<Rigidbody> Movables = new List<Rigidbody>();
+    private List<Rigidbody> _movables;
 
     public WindScript ForwardBlower;
     public WindScript RightBlower;
@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour
 
     private List<WindScript> _blowers = new List<WindScript>();
 
-    private bool _actionLastFrame = false;
+    private bool _checkBlowing = false;
 
     // Start is called before the first frame update
     void Start()
@@ -22,46 +22,56 @@ public class GameController : MonoBehaviour
         if (RightBlower != null) _blowers.Add(RightBlower);
         if (BackBlower != null) _blowers.Add(BackBlower);
         if (LeftBlower != null) _blowers.Add(LeftBlower);
+
+        _movables = FindObjectsOfType<Movable>().Select(x => x.GetComponent<Rigidbody>()).ToList();
+
+        _checkBlowing = true;
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        var canBlow = CheckStatus();
+        var canBlow = _checkBlowing && CheckStatus();
 
         if (canBlow)
         {
-            if (!_actionLastFrame)
-            {
-                ForwardBlower?.SetBlowing(false);
-                RightBlower?.SetBlowing(false);
-                BackBlower?.SetBlowing(false);
-                LeftBlower?.SetBlowing(false);
-            }
-
-            _actionLastFrame = false;
-
+            
+            ForwardBlower?.SetBlowing(false);
+            RightBlower?.SetBlowing(false);
+            BackBlower?.SetBlowing(false);
+            LeftBlower?.SetBlowing(false);
+            
             if (Input.GetKeyDown(KeyCode.W))
             {
                 ForwardBlower?.SetBlowing(true);
-                _actionLastFrame = true;
+                _checkBlowing = false;
             }
             else if (Input.GetKeyDown(KeyCode.D))
             {
                 RightBlower?.SetBlowing(true);
-                _actionLastFrame = true;
+                _checkBlowing = false;
             }
             else if (Input.GetKeyDown(KeyCode.S))
             {
                 BackBlower?.SetBlowing(true);
-                _actionLastFrame = true;
+                _checkBlowing = false;
             }
             else if (Input.GetKeyDown(KeyCode.A))
             {
                 LeftBlower?.SetBlowing(true);
-                _actionLastFrame = true;
+                _checkBlowing = false;
+            }
+
+            if (!_checkBlowing)
+            {
+                Invoke("EnableBlowChecking", 1f);
             }
         }
+    }
+
+    public void EnableBlowChecking()
+    {
+        _checkBlowing = true;
     }
 
     public void TriggerGameOver()
@@ -70,8 +80,12 @@ public class GameController : MonoBehaviour
         _blowers.ForEach(x => x.SetBlowing(false));
     }
 
+    /// <summary>
+    /// Check status of all movable objects
+    /// </summary>
+    /// <returns>True no movable object is moving</returns>
     public bool CheckStatus()
     {
-        return Movables != null && Movables.All(x => x.velocity == Vector3.zero) || Movables.Count == 0;
+        return _movables != null && _movables.All(x => x.velocity == Vector3.zero);
     }
 }
