@@ -142,6 +142,7 @@ public class GameController : MonoBehaviour
     {
         Debug.Log("Game Over");
 //        _blowers.ForEach(x => x.SetBlowing(false));
+        SoundManager.Instance.playLose();
 
         
         WinImage.enabled = false;
@@ -154,6 +155,7 @@ public class GameController : MonoBehaviour
     public void TriggerWin()
     {
         Debug.Log("Win");
+        SoundManager.Instance.playWin();
 
         WinImage.enabled = true;
         LoseImage.enabled = false;

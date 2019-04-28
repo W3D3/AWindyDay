@@ -611,7 +611,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -4558,6 +4558,16 @@ PrefabInstance:
       propertyPath: GameOverPanel
       value: 
       objectReference: {fileID: 2055853479}
+    - target: {fileID: 8350203710350053595, guid: caf0b8e7ea5bc6847a9d88919c67c353,
+        type: 3}
+      propertyPath: NextLevel
+      value: Level7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8350203710350053595, guid: caf0b8e7ea5bc6847a9d88919c67c353,
+        type: 3}
+      propertyPath: PreviousLevel
+      value: Level5
+      objectReference: {fileID: 0}
     - target: {fileID: 8350203710350053592, guid: caf0b8e7ea5bc6847a9d88919c67c353,
         type: 3}
       propertyPath: m_LocalPosition.x
