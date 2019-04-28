@@ -25,12 +25,10 @@ public class Movable : MonoBehaviour
             && Mathf.Abs(_currentPos.z - transform.position.z) < Threshold)
         {
             _positionChange = false;
-            Debug.Log("Not Moving" + gameObject.GetInstanceID());
         }
         else
         {
             _positionChange = true;
-            Debug.Log("Change" + gameObject.GetInstanceID());
         }
 
         _currentPos = transform.position;
