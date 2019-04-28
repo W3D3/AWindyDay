@@ -77,6 +77,7 @@ public class WindScript : MonoBehaviour
         if(transform.hasChanged) Start();
         if (Blowing)
         {
+            SoundManager.Instance.playWind();
             _moveableObjects.Clear();
 
             foreach (var origin in RayOrigins)
