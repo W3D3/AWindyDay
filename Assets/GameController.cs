@@ -28,6 +28,8 @@ public class GameController : MonoBehaviour
     public string NextLevel;
     public string PreviousLevel;
 
+    public GameObject TutorialUI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -152,6 +154,8 @@ public class GameController : MonoBehaviour
         InfoText.SetText("Press R to Restart");
         GameOverPanel.SetActive(true);
         _state = GameState.Lost;
+
+        TutorialUI?.SetActive(false);
     }
 
     public void TriggerWin()
@@ -164,6 +168,8 @@ public class GameController : MonoBehaviour
         InfoText.SetText("Press SPACE to Continue");
         GameOverPanel.SetActive(true);
         _state = GameState.Won;
+
+        TutorialUI?.SetActive(false);
 
     }
 
