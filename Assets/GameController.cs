@@ -1,13 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Assets.Enums;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    private List<Rigidbody> _movables;
+    private List<Movable> _movables;
 
     public WindScript ForwardBlower;
     public WindScript RightBlower;
@@ -17,13 +18,15 @@ public class GameController : MonoBehaviour
     private List<WindScript> _blowers = new List<WindScript>();
 
     public GameObject GameOverPanel;
-    private Text TitleText;
-    private Text InfoText;
+    private RawImage WinImage;
+    private RawImage LoseImage;
+    private TextMeshProUGUI InfoText;
 
     private bool _checkBlowing = false;
 
     private GameState _state;
     public string NextLevel;
+    public string PreviousLevel;
 
     // Start is called before the first frame update
     void Start()
@@ -33,15 +36,16 @@ public class GameController : MonoBehaviour
         if (BackBlower != null) _blowers.Add(BackBlower);
         if (LeftBlower != null) _blowers.Add(LeftBlower);
 
-        _movables = FindObjectsOfType<Movable>().Select(x => x.GetComponent<Rigidbody>()).ToList();
+        _movables = FindObjectsOfType<Movable>().ToList();
 
         _checkBlowing = true;
 
-        var texts = GameOverPanel.GetComponentsInChildren<Text>();
+        GameOverPanel.SetActive(false);
+        var images = GameOverPanel.GetComponentsInChildren<RawImage>(true);
+        WinImage = images[0];
+        LoseImage = images[1];
+        InfoText = GameOverPanel.GetComponentInChildren<TextMeshProUGUI>();
         
-        TitleText = texts[0];
-        InfoText = texts[1];
-
         _state = GameState.Playing;
 
     }
@@ -105,6 +109,22 @@ public class GameController : MonoBehaviour
                 RestartLevel();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            if (!string.IsNullOrEmpty(NextLevel))
+            {
+                SceneManager.LoadScene(NextLevel);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (!string.IsNullOrEmpty(NextLevel))
+            {
+                SceneManager.LoadScene(PreviousLevel);
+            }
+        }
     }
 
     void EnableBlowChecking()
@@ -123,10 +143,12 @@ public class GameController : MonoBehaviour
         Debug.Log("Game Over");
 //        _blowers.ForEach(x => x.SetBlowing(false));
         SoundManager.Instance.playLose();
-        GameOverPanel.SetActive(true);
-        TitleText.text = "Level Failed :(";
-        InfoText.text = "Press R to restart";
 
+        
+        WinImage.enabled = false;
+        LoseImage.enabled = true;
+        InfoText.SetText("Press R to Restart");
+        GameOverPanel.SetActive(true);
         _state = GameState.Lost;
     }
 
@@ -134,10 +156,11 @@ public class GameController : MonoBehaviour
     {
         Debug.Log("Win");
         SoundManager.Instance.playWin();
-        GameOverPanel.SetActive(true);
-        TitleText.text = "Level Clear :)";
-        InfoText.text = "Press Space to continue";
 
+        WinImage.enabled = true;
+        LoseImage.enabled = false;
+        InfoText.SetText("Press SPACE to Continue");
+        GameOverPanel.SetActive(true);
         _state = GameState.Won;
 
     }
@@ -148,7 +171,7 @@ public class GameController : MonoBehaviour
     /// <returns>True no movable object is moving</returns>
     public bool CheckStatus()
     {
-        return _state == GameState.Playing && _movables != null && _movables.All(x => x.velocity.magnitude < 0.01f);
+        return _state == GameState.Playing && _movables != null && _movables.All(x => !x.HasPositionChanged());
     }
 
     private bool noParticles()
