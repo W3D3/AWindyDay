@@ -9,6 +9,75 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: d96dbfa95717bf249ad64bb5d85f0aef
   - enabled: 1
-    path: Assets/Scenes/FinalLevels/Level0.unity
-    guid: 4bc8bfdf2d3d64d86ac8edde14244f94
+    path: Assets/Scenes/FinalLevels/Level1.unity
+    guid: dd9f8cc182d74924181c2c67147e4a03
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/Level2.unity
+    guid: d78c63a95128c524280094830fdf610d
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/Level3.unity
+    guid: 454ffcf7cfb45134cbf97ffb10298d90
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/Level4.unity
+    guid: 06de2054c6c0230459a7c1e751e22631
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/Level5.unity
+    guid: 73dea2458a3e565469161162d6d0bf1e
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/Level6.unity
+    guid: 79beaa421b9d8184ca93110e079f45aa
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/Level7.unity
+    guid: 2b76dd2e3ee53874da053169e3a5239e
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/Level9.unity
+    guid: 505ba1f2cc387b347bac3f988ad0b99e
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/Level10.unity
+    guid: 1ed3382dccb98d245941b90d93d263be
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/Level11.unity
+    guid: 9547191432c5f4bbaa67b06c3a180a8d
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/Level12.unity
+    guid: cf6274208e8a9ff4595cd4f50a4112f8
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/Level13.unity
+    guid: cd67e92a8e264964394bdb4be56f6a76
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/Level14.unity
+    guid: cb08f3fd1582645b993ca06f0001fc2d
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/Level15.unity
+    guid: 5c84f70aab1514a11abd0d1e68815f41
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/Level16.unity
+    guid: 107eed9a082adb247a4a94fa1533e984
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/Level17.unity
+    guid: 69a5ee8989cb0764a945bc6d490cab20
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/Level18.unity
+    guid: 7887008547bf14d348a1e55ef35e62d9
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/Tut1.unity
+    guid: 2d0edd2804f2a1b468fd5081825ab163
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/Tut2.unity
+    guid: 2118e6d89c5160e4581d6056d17dbe99
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/Tut3.unity
+    guid: f0cacef42e883e244aec82b2214a6361
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/Tut4.unity
+    guid: f0568d6e9d7872c42a43bcc9f58d0110
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/Tut5.unity
+    guid: a7a9a324fe0f05a44b164b322c0c1c0f
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/Tut6.unity
+    guid: a5bad6b22dad8984fbb262452e42f940
+  - enabled: 1
+    path: Assets/Scenes/FinalLevels/Tut7.unity
+    guid: 12bb02135cdca754180a5122844bd915
   m_configObjects: {}
