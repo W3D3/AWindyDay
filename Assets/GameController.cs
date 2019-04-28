@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    private List<Rigidbody> _movables;
+    private List<Movable> _movables;
 
     public WindScript ForwardBlower;
     public WindScript RightBlower;
@@ -35,7 +35,7 @@ public class GameController : MonoBehaviour
         if (BackBlower != null) _blowers.Add(BackBlower);
         if (LeftBlower != null) _blowers.Add(LeftBlower);
 
-        _movables = FindObjectsOfType<Movable>().Select(x => x.GetComponent<Rigidbody>()).ToList();
+        _movables = FindObjectsOfType<Movable>().ToList();
 
         _checkBlowing = true;
 
@@ -152,7 +152,7 @@ public class GameController : MonoBehaviour
     /// <returns>True no movable object is moving</returns>
     public bool CheckStatus()
     {
-        return _state == GameState.Playing && _movables != null && _movables.All(x => x.velocity.magnitude < 0.01f);
+        return _state == GameState.Playing && _movables != null && _movables.All(x => !x.HasPositionChanged());
     }
 
     private bool noParticles()
