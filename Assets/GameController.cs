@@ -122,7 +122,7 @@ public class GameController : MonoBehaviour
     {
         Debug.Log("Game Over");
 //        _blowers.ForEach(x => x.SetBlowing(false));
-
+        SoundManager.Instance.playLose();
         GameOverPanel.SetActive(true);
         TitleText.text = "Level Failed :(";
         InfoText.text = "Press R to restart";
@@ -133,7 +133,7 @@ public class GameController : MonoBehaviour
     public void TriggerWin()
     {
         Debug.Log("Win");
-
+        SoundManager.Instance.playWin();
         GameOverPanel.SetActive(true);
         TitleText.text = "Level Clear :)";
         InfoText.text = "Press Space to continue";

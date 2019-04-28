@@ -11,24 +11,34 @@ public class SoundManager : MonoBehaviour
     public AudioSource defeat;
     public AudioClip defeatClip;
 
-    public static SoundManager instance = null;
+    public static SoundManager Instance = null;
 
     void Awake()
     {
-        if (instance == null)
-            instance = null;
-        else if (instance != this)
+        if (Instance == null)
+            Instance = this;
+        else if (Instance != this)
             Destroy(gameObject);
     }
 
     public void playWind()
     {
-        wind.clip = windClip;
-        wind.Play();
+        if (!wind.isPlaying)
+        {
+            wind.clip = windClip;
+            wind.Play();
+        }
     }
 
     public void playWin()
     {
         win.clip = winClip;
+        win.Play();
+    }
+    
+    public void playLose()
+    {
+        defeat.clip = defeatClip;
+        defeat.Play();
     }
 }
