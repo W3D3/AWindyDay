@@ -26,6 +26,7 @@ public class GameController : MonoBehaviour
 
     private GameState _state;
     public string NextLevel;
+    public string PreviousLevel;
 
     // Start is called before the first frame update
     void Start()
@@ -106,6 +107,22 @@ public class GameController : MonoBehaviour
             else
             {
                 RestartLevel();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            if (!string.IsNullOrEmpty(NextLevel))
+            {
+                SceneManager.LoadScene(NextLevel);
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (!string.IsNullOrEmpty(NextLevel))
+            {
+                SceneManager.LoadScene(PreviousLevel);
             }
         }
     }
