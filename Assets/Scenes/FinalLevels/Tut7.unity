@@ -162,6 +162,16 @@ PrefabInstance:
       propertyPath: TutorialUI
       value: 
       objectReference: {fileID: 544140047}
+    - target: {fileID: 8350203710350053595, guid: caf0b8e7ea5bc6847a9d88919c67c353,
+        type: 3}
+      propertyPath: NextLevel
+      value: Level14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8350203710350053595, guid: caf0b8e7ea5bc6847a9d88919c67c353,
+        type: 3}
+      propertyPath: PreviousLevel
+      value: Level13
+      objectReference: {fileID: 0}
     - target: {fileID: 8350203710350053592, guid: caf0b8e7ea5bc6847a9d88919c67c353,
         type: 3}
       propertyPath: m_LocalPosition.x
