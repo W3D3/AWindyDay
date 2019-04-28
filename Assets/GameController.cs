@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Assets.Enums;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -17,8 +18,9 @@ public class GameController : MonoBehaviour
     private List<WindScript> _blowers = new List<WindScript>();
 
     public GameObject GameOverPanel;
-    private Text TitleText;
-    private Text InfoText;
+    private RawImage WinImage;
+    private RawImage LoseImage;
+    private TextMeshProUGUI InfoText;
 
     private bool _checkBlowing = false;
 
@@ -37,11 +39,12 @@ public class GameController : MonoBehaviour
 
         _checkBlowing = true;
 
-        var texts = GameOverPanel.GetComponentsInChildren<Text>();
+        GameOverPanel.SetActive(false);
+        var images = GameOverPanel.GetComponentsInChildren<RawImage>(true);
+        WinImage = images[0];
+        LoseImage = images[1];
+        InfoText = GameOverPanel.GetComponentInChildren<TextMeshProUGUI>();
         
-        TitleText = texts[0];
-        InfoText = texts[1];
-
         _state = GameState.Playing;
 
     }
@@ -123,10 +126,11 @@ public class GameController : MonoBehaviour
         Debug.Log("Game Over");
 //        _blowers.ForEach(x => x.SetBlowing(false));
 
+        
+        WinImage.enabled = false;
+        LoseImage.enabled = true;
+        InfoText.SetText("Press R to Restart");
         GameOverPanel.SetActive(true);
-        TitleText.text = "Level Failed :(";
-        InfoText.text = "Press R to restart";
-
         _state = GameState.Lost;
     }
 
@@ -134,10 +138,10 @@ public class GameController : MonoBehaviour
     {
         Debug.Log("Win");
 
+        WinImage.enabled = true;
+        LoseImage.enabled = false;
+        InfoText.SetText("Press SPACE to Continue");
         GameOverPanel.SetActive(true);
-        TitleText.text = "Level Clear :)";
-        InfoText.text = "Press Space to continue";
-
         _state = GameState.Won;
 
     }
