@@ -57,7 +57,7 @@ public class GameController : MonoBehaviour
 
         if (canBlow)
         {
-            
+            int pressLen = 0;
             ForwardBlower?.SetBlowing(false);
             RightBlower?.SetBlowing(false);
             BackBlower?.SetBlowing(false);
@@ -65,22 +65,24 @@ public class GameController : MonoBehaviour
 
             if (noParticles())
             {
-                if (Input.GetKeyDown(KeyCode.W))
+                var hor = Input.GetAxis("Horizontal");
+                var ver = Input.GetAxis("Vertical");
+                if (ver > pressLen)
                 {
                     ForwardBlower?.SetBlowing(true);
                     _checkBlowing = false;
                 }
-                else if (Input.GetKeyDown(KeyCode.D))
+                else if (hor > pressLen)
                 {
                     RightBlower?.SetBlowing(true);
                     _checkBlowing = false;
                 }
-                else if (Input.GetKeyDown(KeyCode.S))
+                else if (ver < -pressLen)
                 {
                     BackBlower?.SetBlowing(true);
                     _checkBlowing = false;
                 }
-                else if (Input.GetKeyDown(KeyCode.A))
+                else if (hor < -pressLen)
                 {
                     LeftBlower?.SetBlowing(true);
                     _checkBlowing = false;
