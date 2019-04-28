@@ -3,12 +3,37 @@ using UnityEngine;
 public class Movable : MonoBehaviour
 {
     private Rigidbody _rigidbody;
-    
+
+    public static float Threshold = 0.001f;
+
+    private bool _positionChange;
+    private Vector3 _currentPos;
+
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.drag = 1;
+
+        _positionChange = false;
+        _currentPos = transform.position;
+    }
+
+    void FixedUpdate()
+    {
+        if (Mathf.Abs(_currentPos.x - transform.position.x) < Threshold
+            && Mathf.Abs(_currentPos.z - transform.position.z) < Threshold)
+        {
+            _positionChange = false;
+            Debug.Log("Not Moving" + gameObject.GetInstanceID());
+        }
+        else
+        {
+            _positionChange = true;
+            Debug.Log("Change" + gameObject.GetInstanceID());
+        }
+
+        _currentPos = transform.position;
     }
 
     /// <summary>
@@ -20,5 +45,10 @@ public class Movable : MonoBehaviour
     public void PushObject(Vector3 direction, float force)
     { 
         _rigidbody.AddForce(direction.normalized * force * 0.03f, ForceMode.VelocityChange);
+    }
+
+    public bool HasPositionChanged()
+    {
+        return _positionChange;
     }
 }
