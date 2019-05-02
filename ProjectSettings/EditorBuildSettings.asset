@@ -61,7 +61,7 @@ EditorBuildSettings:
     guid: 7887008547bf14d348a1e55ef35e62d9
   - enabled: 1
     path: Assets/Scenes/FinalLevels/Tut1.unity
-    guid: 2d0edd2804f2a1b468fd5081825ab163
+    guid: 4bc8bfdf2d3d64d86ac8edde14244f94
   - enabled: 1
     path: Assets/Scenes/FinalLevels/Tut2.unity
     guid: 2118e6d89c5160e4581d6056d17dbe99
