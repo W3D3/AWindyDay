@@ -3674,7 +3674,7 @@ PrefabInstance:
         type: 3}
       propertyPath: TutorialUI
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1776258393}
     - target: {fileID: 8350203710350053595, guid: caf0b8e7ea5bc6847a9d88919c67c353,
         type: 3}
       propertyPath: NextLevel
