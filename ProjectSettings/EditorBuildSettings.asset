@@ -45,7 +45,7 @@ EditorBuildSettings:
     path: Assets/Scenes/FinalLevels/Level13.unity
     guid: cd67e92a8e264964394bdb4be56f6a76
   - enabled: 1
-    path: Assets/Scenes/FinalLevels/Level14.unity
+    path: Assets/Scenes/FinalLevels/Tut7.unity
     guid: cb08f3fd1582645b993ca06f0001fc2d
   - enabled: 1
     path: Assets/Scenes/FinalLevels/Level15.unity
@@ -78,6 +78,6 @@ EditorBuildSettings:
     path: Assets/Scenes/FinalLevels/Tut6.unity
     guid: a5bad6b22dad8984fbb262452e42f940
   - enabled: 1
-    path: Assets/Scenes/FinalLevels/Tut7.unity
+    path: Assets/Scenes/FinalLevels/Tut7_old.unity
     guid: 12bb02135cdca754180a5122844bd915
   m_configObjects: {}
