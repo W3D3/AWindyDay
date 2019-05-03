@@ -14,6 +14,8 @@ public class Movable : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody>();
         _rigidbody.drag = 1;
+        _rigidbody.constraints = RigidbodyConstraints.FreezePositionY | _rigidbody.constraints;
+        _rigidbody.freezeRotation = true;
 
         _positionChange = false;
         _currentPos = transform.position;

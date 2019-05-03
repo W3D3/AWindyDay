@@ -23,12 +23,13 @@ public class GoalScript : MonoBehaviour
     {
         if (go.GetComponent<PlayerScript>() != null)
         {
-            Controller.TriggerWin();
-
+           
             var rb = go.GetComponent<Rigidbody>();
             rb.isKinematic = true;
+            rb.constraints = RigidbodyConstraints.None;
 
             go.transform.position = transform.position + HatPosition;
+            Controller.TriggerWin();
         }
     }
 
